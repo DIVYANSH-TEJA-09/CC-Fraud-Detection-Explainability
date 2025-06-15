@@ -4,7 +4,12 @@ A comprehensive ML-driven credit card fraud detection system using Python, ML mo
 
 - **Data Processing & Balancing**:  
   - Loads original credit card transaction dataset  
-  - Handles imbalanced classes using SMOTE (30% fraud ratio)  
+  - Handles imbalanced classes using SMOTE (30% fraud ratio)
+<p align="center">
+  <img src="images/imbalanced_dataset.png" alt="Imbalanced Dataset" width="300"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="images/balanced_dataset.png" alt="Balanced Dataset" width="300"/>
+</p>
 
 - **Modeling Techniques**:  
   - Logistic Regression  
@@ -14,16 +19,56 @@ A comprehensive ML-driven credit card fraud detection system using Python, ML mo
   - Stacking-based **Hybrid Model** (Random Forest + XGBoost + LR)  
 
 - **Evaluation**:
-  - ROC‑AUC scoring & model comparison plots  
-  - Confusion matrices for each classifier 
-- **Explainability**: 
-  - SHAP-based explainability for the XGBoost model  
+  - ROC‑AUC scoring & model comparison plots
+    <br>
+       <p align="center">
+  <img src="images/ROC_AUC.png" alt="ROC_AUC" width="600"/>
+</p>
 
+   - Confusion matrices for each classifier  
+<p align="center">
+  <img src="images/RandomForest_CM.png" alt="Random Forest Confusion Matrix" width="300"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="images/XGBoost_CM.png" alt="XGBoost Confusion Matrix" width="300"/>
+</p>
+
+  
+- **Explainability**: 
+  - SHAP-based explainability for the XGBoost model
+    <br>
+    <p align="center">
+  <img src="images/XGBoost_SHAP.png" alt="SHAP" width="700"/>
+  <br>
+  <img src="images/XGBoost_FImp.png" alt="XGBoost Feature Importance" width="700"/>
+</p>
+
+    
 - **Interactive Web App**:  
-  - Built with **Streamlit** (`app.py`)  
-  - Allows users to pick a model, input transaction details, and get real-time fraud probabilities  
-  - Includes live AUC comparison charts  
-  - SHAP summary plots for interpretability  
+  - Built with **Streamlit** (`app.py`)
+    <br>
+       <p align="center">
+  <img src="images/Web_Interface.png" alt="Interface" width="600"/>
+  <br>
+
+  - Allows users to pick a model, input transaction details, and get real-time fraud probabilities
+    
+   
+  - Includes live AUC comparison charts
+    <br>
+    <br>
+  <img src="images/Model_Comparision.png" alt="Model_Comparision" width="600"/>
+  <br>
+  <br>
+  
+  - SHAP summary plots for interpretability
+ 
+     <br>
+    <br>
+  <img src="images/SHAP_Plot_ONE_Transaction.png" alt="SHAP_PLOT1" width="600"/>
+  <br>
+  <br>
+</p>
+
 
 ## 📁 Project Structure
 - fraud_detection_app
@@ -37,7 +82,8 @@ A comprehensive ML-driven credit card fraud detection system using Python, ML mo
    - notebooks
      - AIDCCFD&XAI.ipynb  
    - requirements.txt   
-   - README.md   
+   - README.md
+ 
 ## 🚀 Setup & Run Locally
 1. **Clone the repository**  
 2. **Create & activate a virtual environment**
@@ -52,8 +98,26 @@ A comprehensive ML-driven credit card fraud detection system using Python, ML mo
 
 ## Application Usage Guide
 1. Select a **Model**
-2. Enter input or Use **random Samples** 
+<br>
+    <br>  
+  <img src="images/Model_Selection.png" alt="Model_Selection" width="600"/>
+  <br>
+   <br>
+  
+  
+2. Enter input or Use **random Samples**
+  <br>
+  
 3. Click on **Predict** to see result
+      <br>
+       <p align="center">
+  <img src="images/Fill_In_values_and_Predict.png" alt="Predict" width="600"/>
+  <br>
+  <img src="images/Fraud_transaction.png" alt="Fraud" width="600"/>
+  <br>
+  <br>
+
+
 4. Use Explainability tab to:
 
 - View SHAP summary plot
@@ -70,12 +134,32 @@ What is SHAP?
 - Red = High feature value, Blue = Low value
 - X-axis = SHAP value → impact on prediction
 - Example:
-  - If V17 (PCA feature) has high SHAP value and is red:
+  - If V14 (PCA feature) has high SHAP value and is blue:
 
-  - High negative value of V17 strongly pushed prediction toward fraud
+  - High negative value of V14 strongly pushed prediction toward fraud
+  
+     <br>
+    <br>
+  <img src="images/SHAP_Plot_ONE_Transaction.png" alt="SHAP_PLOT1" width="600"/>
+    &nbsp;&nbsp;&nbsp;
+  <img src="images/Fraud_transaction.png" alt="Fraud" width="600"/>
+  <br>
+  <br>
+  
 ### What Happens When a Feature Changes?
 SHAP lets you simulate changes:  
 By changing any important feature values the predictions change this explains how the model interprets the data and makes decisions.
+
+V14 Value changed from Low to High then the prediction changes to Legitimate transaction
+
+ <br>
+    <br>
+  <img src="images/SHAP_Plot_ONE_Transaction_After_change.png" alt="SHAP_PLOT1" width="600"/>
+    &nbsp;&nbsp;&nbsp;
+  <img src="images/Legitimate_Transaction.png" alt="Fraud" width="600"/>
+  <br>
+  <br>
+    
 ## Dataset
 - Source: Kaggle - Credit Card Fraud Detection
 
